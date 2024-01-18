@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package pump;
+
+option go_package = "resources/output";
+
+service StreamingService {
+  rpc StreamData (StreamRequest) returns (stream StreamResponse);
+}
+
+message StreamRequest {
+  string clientID = 1;
+}
+message StreamResponse {
+  int32 pump = 1;
+  int32 face = 2;
+  int32 hose = 3;
+  string productFamily = 4;
+  double price = 5;
+  string unitSymbol = 6;
+  double amount = 7;
+  double volume = 8;
+  string transmissionType = 9;
+  string authorizationType = 10;
+  int64 authorizationId = 11;
+  bool authorized = 12;
+}
